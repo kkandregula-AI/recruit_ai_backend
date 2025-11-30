@@ -5,7 +5,7 @@ import PyPDF2
 from docx import Document
 from dotenv import load_dotenv
 load_dotenv()
-
+import os
 import openai
 
 app = FastAPI()
@@ -18,7 +18,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-openai.api_key = OPENAI_API_KEY
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # -------------------------------
 # TEXT EXTRACTION HANDLERS
